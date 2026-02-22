@@ -9,7 +9,7 @@ export function Author() {
             <div className="relative">
               <div className="absolute -inset-4 bg-[oklch(0.82_0.06_330/0.25)] rounded-full" />
               <Image
-                src="/images/author-portrait.jpg"
+                src="/images/author-portrait.png"
                 alt="Fedra Duarte, autora de Ser Supernova"
                 width={400}
                 height={500}

@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+/* Import Cinzel (display / title font) from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -77,6 +79,8 @@
 @theme inline {
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  /* Display / title font used across headings and book-style titles */
+  --font-display: 'Cinzel', serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -121,5 +125,9 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* Make Tailwind's `font-serif` utility use the Cinzel display font for titles */
+  .font-serif {
+    font-family: var(--font-display) !important;
   }
 }
