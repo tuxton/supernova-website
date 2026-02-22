@@ -1,0 +1,96 @@
+<section class="sn-author sn-section" id="sobre-la-autora">
+  <div class="sn-container">
+    <div class="sn-author__grid">
+      <div class="sn-author__img-wrap">
+        {% if section.settings.author_image != blank %}
+          <div class="sn-author__img-accent"></div>
+          <img
+            src="{{ section.settings.author_image | image_url: width: 800 }}"
+            alt="{{ section.settings.author_image.alt | default: 'Fedra Duarte' }}"
+            class="sn-author__img"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+
+      <div class="sn-author__body">
+        <p class="sn-label">{{ section.settings.label_text }}</p>
+        <h2 class="sn-heading sn-heading--lg">{{ section.settings.title }}</h2>
+
+        <div class="sn-text">
+          {{ section.settings.biography }}
+        </div>
+
+        {% if section.settings.highlight_quote != blank %}
+          <p class="sn-italic" style="font-size: 1.125rem; color: var(--sn-text);">
+            {{ section.settings.highlight_quote }}
+          </p>
+        {% endif %}
+
+        <div class="sn-text">
+          {{ section.settings.biography_continued }}
+        </div>
+
+        {% if section.settings.closing_line != blank %}
+          <p class="sn-italic" style="color: var(--sn-gold);">
+            {{ section.settings.closing_line }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sobre la Autora",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "author_image",
+      "label": "Foto de la autora"
+    },
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta",
+      "default": "Sobre la autora"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Quien soy cuando me saco todas las capas"
+    },
+    {
+      "type": "richtext",
+      "id": "biography",
+      "label": "Biografia (primera parte)",
+      "default": "<p>Soy <strong>Fedra Duarte</strong>, mama, mujer, alma buscadora, caminante de mis sombras y guardiana de mi propia luz.</p><p>Vivi renacimientos, perdidas, despertares y revelaciones que me obligaron a mirar adentro sin filtros.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "highlight_quote",
+      "label": "Frase destacada",
+      "default": "Mi hijo fue mi fractura y mi faro. Mi historia, mi medicina. Y este libro... mi servicio."
+    },
+    {
+      "type": "richtext",
+      "id": "biography_continued",
+      "label": "Biografia (segunda parte)",
+      "default": "<p>Hoy acompa\u00f1o procesos de conciencia emocional y espiritual. Creo en la alquimia interna. Creo en el amor como energia universal. Creo en el poder de sanar para sanar a otros.</p>"
+    },
+    {
+      "type": "text",
+      "id": "closing_line",
+      "label": "Frase de cierre",
+      "default": "Si estas aca, nuestras almas se reconocieron."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sobre la Autora"
+    }
+  ]
+}
+{% endschema %}

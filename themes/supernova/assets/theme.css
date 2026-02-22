@@ -1,0 +1,70 @@
+/* ============================================================
+   SER SUPERNOVA — Shopify Theme Stylesheet
+   Paleta: Rosa empolvado / Lavanda / Mauve + Dorado
+   ============================================================ */
+
+/* --- CSS Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Backgrounds */
+  --sn-bg: #f5eef2;
+  --sn-bg-alt: #ece3e9;
+  --sn-bg-dark: #3b2636;
+  --sn-bg-dark-deep: #2d1c28;
+
+  /* Text */
+  --sn-text: #3b2636;
+  --sn-text-muted: #7a6474;
+  --sn-text-light: #f3edf1;
+  --sn-text-light-muted: #d9cdd6;
+
+  /* Primary (Gold) */
+  --sn-gold: #c9a84c;
+  --sn-gold-light: #d4b86a;
+  --sn-gold-dark: #1f1518;
+
+  /* Accent (Rose/Mauve) */
+  --sn-rose: #d4a8c8;
+  --sn-rose-light: #e8d0e2;
+  --sn-rose-subtle: rgba(212, 168, 200, 0.15);
+
+  /* Borders */
+  --sn-border: #ddd0d9;
+  --sn-border-dark: rgba(243, 237, 241, 0.1);
+
+  /* Radius */
+  --sn-radius: 2px;
+
+  /* Fonts */
+  --sn-font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sn-font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.sn-body {
+  font-family: var(--sn-font-sans);
+  background-color: var(--sn-bg);
+  color: var(--sn-text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ... (truncated for brevity; full stylesheet copied from shopify-theme/assets/theme.css) */

@@ -1,0 +1,15 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Saltar al contenido",
+      "close": "Cerrar",
+      "open_menu": "Abrir menu",
+      "close_menu": "Cerrar menu"
+    }
+  },
+  "sections": {
+    "hero": {
+      "scroll_down": "Desplazarse hacia abajo"
+    }
+  }
+}

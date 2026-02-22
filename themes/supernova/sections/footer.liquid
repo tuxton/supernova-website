@@ -1,0 +1,39 @@
+<footer class="sn-footer" role="contentinfo">
+  <div class="sn-container">
+    <div class="sn-footer__inner">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+        <p class="sn-footer__brand">{{ section.settings.brand_text }}</p>
+        <p class="sn-footer__author">{{ section.settings.author_text }}</p>
+      </div>
+      <p class="sn-footer__copy">
+        &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_name }}. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_text",
+      "label": "Nombre de marca",
+      "default": "Ser Supernova"
+    },
+    {
+      "type": "text",
+      "id": "author_text",
+      "label": "Texto de autora",
+      "default": "Por Fedra Duarte"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Nombre para copyright",
+      "default": "Fedra Duarte"
+    }
+  ]
+}
+{% endschema %}

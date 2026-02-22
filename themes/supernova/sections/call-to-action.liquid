@@ -1,0 +1,75 @@
+<section class="sn-cta sn-section" id="comprar">
+  <div class="sn-cta__glow-1"></div>
+  <div class="sn-cta__glow-2"></div>
+
+  <div class="sn-cta__content sn-container--sm">
+    <span class="sn-cta__sparkle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
+    </span>
+
+    <h2 class="sn-heading sn-heading--lg sn-heading--light">{{ section.settings.title }}</h2>
+
+    <p class="sn-text--light" style="font-size: 1.0625rem; max-width: 36rem; line-height: 1.7;">
+      {{ section.settings.description }}
+    </p>
+
+    {% if section.settings.product != blank %}
+      <a href="{{ section.settings.product.url }}" class="sn-btn sn-btn--gold-lg">
+        {{ section.settings.cta_text }}
+      </a>
+    {% else %}
+      <a href="{{ section.settings.cta_link }}" class="sn-btn sn-btn--gold-lg">
+        {{ section.settings.cta_text }}
+      </a>
+    {% endif %}
+
+    <p class="sn-cta__note">{{ section.settings.note }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Llamado a la Accion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Lista para tu transformacion?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripcion",
+      "default": "Si estas frente a este libro, es porque una parte tuya esta lista para expandirse. Para estallar hacia la luz. Para volverse supernova."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto del boton",
+      "default": "Quiero mi libro — Descarga digital"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Producto de Shopify (opcional)"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Enlace alternativo (si no hay producto)"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Nota bajo el boton",
+      "default": "Incluye: PDF profesional + acceso inmediato + bonos"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Llamado a la Accion"
+    }
+  ]
+}
+{% endschema %}

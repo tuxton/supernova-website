@@ -1,0 +1,110 @@
+<section class="sn-about sn-section" id="sobre-el-libro">
+  <div class="sn-container">
+    <div class="sn-about__grid">
+      <div class="sn-about__cover-wrap">
+        {% if section.settings.book_cover != blank %}
+          <div class="sn-about__cover-accent"></div>
+          <img
+            src="{{ section.settings.book_cover | image_url: width: 800 }}"
+            alt="{{ section.settings.book_cover.alt | default: 'Portada del libro Ser Supernova' }}"
+            class="sn-about__cover"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+
+      <div class="sn-about__body">
+        <p class="sn-label">{{ section.settings.label_text }}</p>
+        <h2 class="sn-heading sn-heading--lg">{{ section.settings.title }}</h2>
+
+        <div class="sn-text">
+          {{ section.settings.description }}
+        </div>
+
+        <p style="font-weight: 600; color: var(--sn-text);">{{ section.settings.list_heading }}</p>
+
+        <ul class="sn-about__list">
+          {% for block in section.blocks %}
+            {% if block.type == 'reason' %}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <p class="sn-italic" style="font-size: 1.125rem; color: var(--sn-text);">
+          {{ section.settings.closing_quote }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sobre el Libro",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "book_cover",
+      "label": "Portada del libro"
+    },
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta",
+      "default": "Sobre el libro"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Que es Ser Supernova?"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripcion",
+      "default": "<p>Ser Supernova es un viaje. Un renacer. Un relato intimo donde cuento como mi propia explosion interna me devolvio a la vida, a la conciencia y al amor mas grande: el propio.</p>"
+    },
+    {
+      "type": "text",
+      "id": "list_heading",
+      "label": "Encabezado de la lista",
+      "default": "Este libro es para vos si:"
+    },
+    {
+      "type": "textarea",
+      "id": "closing_quote",
+      "label": "Frase de cierre",
+      "default": "Cada capitulo es una linterna. Cada palabra, un rito. Cada imagen, una brujula."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Razon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto",
+          "default": "Sentis que tu alma esta pidiendo direccion"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sobre el Libro",
+      "blocks": [
+        { "type": "reason", "settings": { "text": "Sentis que tu alma esta pidiendo direccion" } },
+        { "type": "reason", "settings": { "text": "Atravesaste vinculos que te apagaron" } },
+        { "type": "reason", "settings": { "text": "Buscas sanar tu historia sin negarla" } },
+        { "type": "reason", "settings": { "text": "Queres ordenar tu luz y tu sombra" } },
+        { "type": "reason", "settings": { "text": "Necesitas redescubrir tu proposito" } },
+        { "type": "reason", "settings": { "text": "Sabes que hay una version tuya esperando nacer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

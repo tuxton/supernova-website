@@ -1,0 +1,61 @@
+/* Tailwind entry for generating a theme CSS that matches the Next.js site.
+   This file imports the design tokens and Tailwind directives used in the app.
+   We include Cinzel here for display headings.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* Project design tokens and base Tailwind layers - copied from app/globals.css
+   to ensure the compiled CSS matches the Next site. Keep this in sync if you
+   change the project's global styles. */
+
+:root {
+  --background: oklch(0.97 0.008 330);
+  --foreground: oklch(0.25 0.03 320);
+  --card: oklch(0.98 0.006 330);
+  --card-foreground: oklch(0.25 0.03 320);
+  --popover: oklch(0.98 0.006 330);
+  --popover-foreground: oklch(0.25 0.03 320);
+  --primary: oklch(0.72 0.10 80);
+  --primary-foreground: oklch(0.18 0.02 320);
+  --secondary: oklch(0.93 0.015 325);
+  --secondary-foreground: oklch(0.30 0.03 320);
+  --muted: oklch(0.94 0.012 325);
+  --muted-foreground: oklch(0.50 0.025 320);
+  --accent: oklch(0.82 0.06 330);
+  --accent-foreground: oklch(0.25 0.03 320);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.90 0.018 325);
+  --input: oklch(0.90 0.018 325);
+  --ring: oklch(0.72 0.10 80);
+  --chart-1: oklch(0.72 0.10 80);
+  --chart-2: oklch(0.82 0.06 330);
+  --chart-3: oklch(0.50 0.025 320);
+  --chart-4: oklch(0.85 0.04 325);
+  --chart-5: oklch(0.70 0.08 330);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.20 0.02 320);
+  --foreground: oklch(0.93 0.01 330);
+  --card: oklch(0.22 0.02 320);
+  --card-foreground: oklch(0.93 0.01 330);
+  --popover: oklch(0.22 0.02 320);
+  --popover-foreground: oklch(0.93 0.01 330);
+  --primary: oklch(0.75 0.10 80);
+  --primary-foreground: oklch(0.15 0.02 320);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { background-color: var(--background); color: var(--foreground); }
+  /* Use Cinzel for display serif utility */
+  .font-serif { font-family: 'Cinzel', serif !important; }
+}
+
+/* Minimal helpers for the theme (accordion open state) */
+.sn-faq__answer { transition: max-height 260ms ease; }
+.sn-faq__item.is-open .sn-faq__answer { /* max-height set by JS */ }

@@ -1,0 +1,87 @@
+<section class="sn-benefits sn-section" id="beneficios">
+  <div class="sn-container--md">
+    <div class="sn-benefits__header">
+      <p class="sn-label">{{ section.settings.label_text }}</p>
+      <h2 class="sn-heading sn-heading--lg">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="sn-benefits__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'benefit' %}
+          <div class="sn-benefits__item" {{ block.shopify_attributes }}>
+            <span class="sn-benefits__check">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span class="sn-benefits__text">{{ block.settings.text }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.closing_quote != blank %}
+      <div class="sn-benefits__quote">
+        <p class="sn-italic sn-heading--md" style="color: var(--sn-text);">
+          {{ section.settings.closing_quote }}
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Beneficios",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta",
+      "default": "Tu transformacion"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Lo que te vas a llevar"
+    },
+    {
+      "type": "textarea",
+      "id": "closing_quote",
+      "label": "Frase de cierre",
+      "default": "Este libro no es teoria. Es proceso. Es carne. Es conciencia hecha palabra."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Beneficio",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto del beneficio",
+          "default": "Recuperar tu voz interior"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Beneficios",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Recuperar tu voz interior" } },
+        { "type": "benefit", "settings": { "text": "Reescribir tu historia desde el poder" } },
+        { "type": "benefit", "settings": { "text": "Integrar tu sombra con amor" } },
+        { "type": "benefit", "settings": { "text": "Comprender tus heridas como maestras" } },
+        { "type": "benefit", "settings": { "text": "Activar tu proposito esencial" } },
+        { "type": "benefit", "settings": { "text": "Manifestar una nueva realidad desde la coherencia" } },
+        { "type": "benefit", "settings": { "text": "Honrar tu energia femenina y creadora" } },
+        { "type": "benefit", "settings": { "text": "Entender la alquimia emocional: convertir dolor en sabiduria" } },
+        { "type": "benefit", "settings": { "text": "Reconectar con tu alma, tu instinto y tu luz" } },
+        { "type": "benefit", "settings": { "text": "Aprender a sostenerte en amor propio" } },
+        { "type": "benefit", "settings": { "text": "Renacer como la mujer que siempre fuiste" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
