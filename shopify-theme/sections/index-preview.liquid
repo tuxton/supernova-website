@@ -1,0 +1,82 @@
+<section class="sn-index sn-section" id="indice">
+  <div class="sn-container--sm">
+    <div class="sn-index__header">
+      <p class="sn-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline; vertical-align:-2px; margin-right:6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        {{ section.settings.label_text }}
+      </p>
+      <h2 class="sn-heading sn-heading--lg">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="sn-index__list">
+      {% for block in section.blocks %}
+        {% if block.type == 'part' %}
+          <div class="sn-index__item" {{ block.shopify_attributes }}>
+            <span class="sn-index__number">{{ block.settings.number }}</span>
+            <div class="sn-index__item-body">
+              <h3 class="sn-heading sn-heading--md">{{ block.settings.title }}</h3>
+              <p class="sn-index__item-chapters">{{ block.settings.chapters }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preview del Indice",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta",
+      "default": "Adelanto"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Que vas a encontrar adentro"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "part",
+      "name": "Parte",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Numero (romano)",
+          "default": "I"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titulo de la parte",
+          "default": "El Estallido"
+        },
+        {
+          "type": "text",
+          "id": "chapters",
+          "label": "Capitulos",
+          "default": "Capitulos 1 a 3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preview del Indice",
+      "blocks": [
+        { "type": "part", "settings": { "number": "I", "title": "El Estallido", "chapters": "Capitulos 1 a 3" } },
+        { "type": "part", "settings": { "number": "II", "title": "Entre Sombras y Fragmentos", "chapters": "Capitulos 4 y 5" } },
+        { "type": "part", "settings": { "number": "III", "title": "El Renacer", "chapters": "Capitulos 6 a 9" } },
+        { "type": "part", "settings": { "number": "IV", "title": "Convertir el Estallido en Luz", "chapters": "Capitulos 10 a 12 + Epilogo" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

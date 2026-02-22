@@ -1,0 +1,86 @@
+<header class="sn-navbar sn-navbar--transparent" role="banner">
+  <nav class="sn-navbar__inner" aria-label="Navegacion principal">
+    <a href="{{ routes.root_url }}" class="sn-navbar__brand">
+      {{ section.settings.brand_text }}
+    </a>
+
+    <ul class="sn-navbar__links">
+      {% for block in section.blocks %}
+        {% if block.type == 'nav_link' %}
+          <li>
+            <a href="{{ block.settings.link }}" class="sn-navbar__link">
+              {{ block.settings.label }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      <li>
+        <a href="{{ section.settings.cta_link }}" class="sn-navbar__cta">
+          {{ section.settings.cta_text }}
+        </a>
+      </li>
+    </ul>
+
+    <button class="sn-navbar__toggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg class="sn-toggle-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="sn-toggle-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </nav>
+
+  <div class="sn-navbar__mobile">
+    {% for block in section.blocks %}
+      {% if block.type == 'nav_link' %}
+        <a href="{{ block.settings.link }}" class="sn-navbar__mobile-link">
+          {{ block.settings.label }}
+        </a>
+      {% endif %}
+    {% endfor %}
+    <a href="{{ section.settings.cta_link }}" class="sn-navbar__cta sn-navbar__mobile-cta">
+      {{ section.settings.cta_text }}
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Navbar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_text",
+      "label": "Nombre de marca",
+      "default": "Ser Supernova"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto del boton CTA",
+      "default": "Comprar"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Enlace del boton CTA"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Enlace de navegacion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texto del enlace",
+          "default": "Enlace"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "URL del enlace"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

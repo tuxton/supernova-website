@@ -1,0 +1,75 @@
+<section class="sn-faq sn-section" id="faq">
+  <div class="sn-container--sm">
+    <div class="sn-faq__header">
+      <p class="sn-label">{{ section.settings.label_text }}</p>
+      <h2 class="sn-heading sn-heading--lg">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="sn-faq__list">
+      {% for block in section.blocks %}
+        {% if block.type == 'faq_item' %}
+          <div class="sn-faq__item" {{ block.shopify_attributes }}>
+            <button class="sn-faq__question" type="button" aria-expanded="false">
+              {{ block.settings.question }}
+              <svg class="sn-faq__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="sn-faq__answer">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preguntas Frecuentes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Preguntas frecuentes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Pregunta",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Pregunta",
+          "default": "En que formato viene el libro?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Respuesta",
+          "default": "En PDF profesional. Se puede leer en celular, tablet, computadora o Kindle."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preguntas Frecuentes",
+      "blocks": [
+        { "type": "faq_item", "settings": { "question": "En que formato viene el libro?", "answer": "En PDF profesional. Se puede leer en celular, tablet, computadora o Kindle." } },
+        { "type": "faq_item", "settings": { "question": "Como recibo mi compra?", "answer": "Apenas realizas el pago, te llega un email con el link de descarga inmediata." } },
+        { "type": "faq_item", "settings": { "question": "Puedo leerlo aunque no tenga experiencia en espiritualidad?", "answer": "Si. El libro esta escrito desde lo humano, lo visceral y lo simple. No necesitas ningun conocimiento previo." } },
+        { "type": "faq_item", "settings": { "question": "Que pasa si no me llega el archivo?", "answer": "Me escribis y te lo enviamos en el momento. Estamos siempre disponibles para ayudarte." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

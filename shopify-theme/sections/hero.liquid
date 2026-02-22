@@ -1,0 +1,98 @@
+<section class="sn-hero" id="hero">
+  {% if section.settings.background_image != blank %}
+    <img
+      src="{{ section.settings.background_image | image_url: width: 1920 }}"
+      alt="{{ section.settings.background_image.alt | default: 'Fondo hero' }}"
+      class="sn-hero__bg"
+      loading="eager"
+    >
+  {% endif %}
+  <div class="sn-hero__overlay"></div>
+
+  <div class="sn-hero__content">
+    <p class="sn-label sn-label--light">{{ section.settings.label_text }}</p>
+
+    <h1 class="sn-hero__title">{{ section.settings.title }}</h1>
+
+    <p class="sn-hero__subtitle">{{ section.settings.subtitle }}</p>
+
+    <p class="sn-hero__desc">{{ section.settings.description }}</p>
+
+    <a href="{{ section.settings.cta_link }}" class="sn-btn sn-btn--gold">
+      {{ section.settings.cta_text }}
+    </a>
+
+    <p class="sn-hero__quote">{{ section.settings.quote }}</p>
+
+    {% if section.settings.show_arrow %}
+      <a href="#sobre-el-libro" class="sn-hero__arrow" aria-label="Desplazarse hacia abajo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Imagen de fondo"
+    },
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta superior",
+      "default": "Fedra Duarte presenta"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo principal",
+      "default": "Ser Supernova"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitulo",
+      "default": "El estallido que te convierte en luz"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripcion",
+      "default": "Una guia intima, visceral y luminosa para transformar tu historia en conciencia, y tu dolor en expansion."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto del boton",
+      "default": "Quiero mi libro digital"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Enlace del boton"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Frase inspiracional",
+      "default": "Escribi este libro para las almas que caminaron entre sombras, que se rompieron y se reconstruyeron, que sienten que adentro suyo algo quiere estallar... pero hacia la luz."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Mostrar flecha animada",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

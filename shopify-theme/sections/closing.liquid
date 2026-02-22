@@ -1,0 +1,72 @@
+<section class="sn-closing sn-section">
+  <div class="sn-container--sm">
+    <div class="sn-closing__content">
+      <div class="sn-divider"></div>
+
+      <h2 class="sn-heading sn-heading--lg sn-closing__heading">
+        {{ section.settings.heading_line_1 }}<br>
+        <span>{{ section.settings.heading_line_2 }}</span>
+      </h2>
+
+      <p class="sn-text" style="font-size: 1.0625rem; max-width: 32rem;">
+        {{ section.settings.description }}
+      </p>
+
+      <a href="{{ section.settings.cta_link }}" class="sn-btn sn-btn--gold">
+        {{ section.settings.cta_text }}
+      </a>
+
+      <p class="sn-italic sn-text">{{ section.settings.closing_line }}</p>
+
+      <div class="sn-divider" style="margin-top: 2rem;"></div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cierre Inspiracional",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Titulo linea 1",
+      "default": "Tu historia no te define."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Titulo linea 2 (dorado)",
+      "default": "Tu luz si."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripcion",
+      "default": "Este libro es una puerta. Cruzala. La vida que queres ya esta vibrando adentro tuyo."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto del boton",
+      "default": "Descargar \"Ser Supernova\""
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Enlace del boton"
+    },
+    {
+      "type": "text",
+      "id": "closing_line",
+      "label": "Frase final",
+      "default": "Tu viaje de regreso a vos empieza hoy"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cierre Inspiracional"
+    }
+  ]
+}
+{% endschema %}

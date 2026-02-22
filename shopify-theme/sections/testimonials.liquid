@@ -1,0 +1,75 @@
+<section class="sn-testimonials sn-section" id="testimonios">
+  <div class="sn-container">
+    <div class="sn-testimonials__header">
+      <p class="sn-label sn-label--light">{{ section.settings.label_text }}</p>
+      <h2 class="sn-heading sn-heading--lg sn-heading--light">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="sn-testimonials__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+          <div class="sn-testimonials__card" {{ block.shopify_attributes }}>
+            <div class="sn-testimonials__stars">
+              {% for i in (1..5) %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              {% endfor %}
+            </div>
+            <p class="sn-testimonials__quote">"{{ block.settings.quote }}"</p>
+            <p class="sn-testimonials__author">-- {{ block.settings.author }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonios",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Etiqueta",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo",
+      "default": "Lo que estan diciendo las primeras lectoras"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Cita",
+          "default": "No sabia que necesitaba este libro hasta que lo abri. Es pura revelacion."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Autora",
+          "default": "Lectora verificada"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonios",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "No sabia que necesitaba este libro hasta que lo abri. Es pura revelacion.", "author": "Lectora verificada" } },
+        { "type": "testimonial", "settings": { "quote": "Es sanacion en paginas. Llore, solte, me reconoci.", "author": "Lectora verificada" } },
+        { "type": "testimonial", "settings": { "quote": "Senti que alguien por fin ponia palabras a lo que jamas pude explicar.", "author": "Lectora verificada" } },
+        { "type": "testimonial", "settings": { "quote": "Una obra luminosa. Una guia real hacia el renacer.", "author": "Lectora verificada" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
