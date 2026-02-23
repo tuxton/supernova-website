@@ -4,25 +4,30 @@ and add-to-cart form. Intended to be anchored from the CTA (id="producto").
 {% endcomment %}
 
 <section id="producto" class="relative min-h-screen flex items-center justify-center overflow-hidden sn-product sn-section">
-  {% if section.settings.product != blank %}
-    {% assign product = section.settings.product %}
+  {% if product or section.settings.product != blank %}
+      {% assign product_for_section = nil %}
+      {% if product %}
+        {% assign product_for_section = product %}
+      {% elsif section.settings.product != blank %}
+        {% assign product_for_section = section.settings.product %}
+      {% endif %}
 
-    {% if product.featured_image %}
-      <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}" class="absolute inset-0 w-full h-full object-cover" />
+    {% if product_for_section.featured_image %}
+        <img src="{{ product_for_section.featured_image | img_url: 'master' }}" alt="{{ product_for_section.title }}" class="absolute inset-0 w-full h-full object-cover" />
     {% endif %}
 
     <div class="absolute inset-0 bg-[oklch(0.30_0.04_320/0.55)]"></div>
 
     <div class="relative z-10 flex flex-col items-center px-6 py-24 text-center max-w-4xl mx-auto">
-      <h2 class="font-serif text-4xl md:text-6xl font-bold text-[oklch(0.97_0.006_330)] leading-tight mb-4">{{ product.title }}</h2>
-      <div class="text-[oklch(0.92_0.01_330)] mb-4">{{ product.vendor }}</div>
+        <h2 class="font-serif text-4xl md:text-6xl font-bold text-[oklch(0.97_0.006_330)] leading-tight mb-4">{{ product_for_section.title }}</h2>
+      <div class="text-[oklch(0.92_0.01_330)] mb-4">{{ product_for_section.vendor }}</div>
 
-      {% assign first_variant = product.selected_or_first_available_variant %}
-      <div class="text-2xl font-semibold mb-6">{{ first_variant.price | money }}</div>
+      {% assign first_variant = product_for_section.selected_or_first_available_variant %}
+        <div class="text-2xl font-semibold mb-6">{{ first_variant.price | money }}</div>
 
       {%- comment -%} Single eBook: no variants/quantity selector needed {%- endcomment -%}
       <form class="sn-product-form flex items-center gap-4" method="post" data-redirect="false">
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="id" value="{{ first_variant.id }}">
         <input type="hidden" name="quantity" value="1">
 
         <div class="flex gap-3">
@@ -33,7 +38,7 @@ and add-to-cart form. Intended to be anchored from the CTA (id="producto").
         </div>
       </form>
 
-      <p class="mt-8 text-[oklch(0.92_0.01_330)] max-w-2xl">{{ product.description | strip_html | truncate: 300 }}</p>
+        <p class="mt-8 text-[oklch(0.92_0.01_330)] max-w-2xl">{{ product_for_section.description | strip_html | truncate: 300 }}</p>
     </div>
 
     {{ 'add-to-cart.js' | asset_url | script_tag }}
