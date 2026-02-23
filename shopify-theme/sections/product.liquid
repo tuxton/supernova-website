@@ -12,6 +12,23 @@ and add-to-cart form. Intended to be anchored from the CTA (id="producto").
         {% assign product_for_section = section.settings.product %}
       {% endif %}
 
+      {%- comment -%}
+        If the section is rendered via a JSON template and neither `product` nor
+        `section.settings.product` is available, try to infer the product by
+        the URL handle using `all_products`. This helps when Shopify renders the
+        section in a JSON template where the section's settings are empty.
+      {%- endcomment -%}
+      {% if product_for_section == blank %}
+        {% assign path_parts = request.path | split: '/' %}
+        {% assign last_part = path_parts | last %}
+        {% if last_part != blank %}
+          {% assign inferred = all_products[last_part] %}
+          {% if inferred != nil and inferred.title != blank %}
+            {% assign product_for_section = inferred %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+
     {% if product_for_section.featured_image %}
         <img src="{{ product_for_section.featured_image | img_url: 'master' }}" alt="{{ product_for_section.title }}" class="absolute inset-0 w-full h-full object-cover" />
     {% endif %}
