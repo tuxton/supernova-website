@@ -1,8 +1,18 @@
 {
   "current": {
-    "color_primary": "#c9a84c",
-    "color_background": "#f5eef2",
-    "color_text": "#3b2636",
-    "color_accent": "#d4a8c8"
-  }
+    "name": "Ser Supernova",
+    "settings": {
+      "color_primary": "#c9a84c",
+      "color_background": "#f5eef2",
+      "color_text": "#3b2636",
+      "color_accent": "#d4a8c8",
+      "font_heading": "playfair_display_n7",
+      "font_body": "dm_sans_n4",
+      "social_instagram": "",
+      "social_facebook": "",
+      "social_tiktok": ""
+    },
+    "sections": {}
+  },
+  "presets": {}
 }

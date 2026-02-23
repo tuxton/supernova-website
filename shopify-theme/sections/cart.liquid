@@ -1,0 +1,18 @@
+{% comment %}
+Minimal cart section — lists cart items and checkout link.
+{% endcomment %}
+
+<section class="sn-cart py-12">
+  {% if cart.item_count > 0 %}
+    <ul class="sn-cart__items">
+      {% for item in cart.items %}
+        <li class="sn-cart__item">{{ item.quantity }} × {{ item.product.title }}</li>
+      {% endfor %}
+    </ul>
+    <div class="sn-cart__actions mt-6">
+      <a class="sn-btn" href="/checkout">Pagar — {{ cart.total_price | money }}</a>
+    </div>
+  {% else %}
+    <p>Tu carrito está vacío.</p>
+  {% endif %}
+</section>
