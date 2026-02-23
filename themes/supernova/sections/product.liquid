@@ -1,0 +1,153 @@
+<div class="sn-product">
+  <div class="sn-container">
+    {% if section.settings.product != blank %}
+      {% assign product = all_products[section.settings.product] %}
+      <div class="sn-product__content">
+        <div class="sn-product__image">
+          {% if product.featured_image %}
+            <img 
+              src="{{ product.featured_image | image_url: width: 500 }}"
+              alt="{{ product.featured_image.alt | default: product.title }}"
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+        
+        <div class="sn-product__details">
+          <h2 class="sn-product__title">{{ product.title }}</h2>
+          
+          {% if product.description %}
+            <div class="sn-product__description">
+              {{ product.description }}
+            </div>
+          {% endif %}
+          
+          <div class="sn-product__price">
+            {% if product.price %}
+              <span class="sn-product__price-amount">
+                {{ product.price | money }}
+              </span>
+            {% endif %}
+          </div>
+          
+          <form 
+            class="sn-product__form"
+            onsubmit="handleCheckout(event, {{ product.selected_or_first_available_variant.id }})"
+          >
+            <button 
+              type="submit" 
+              class="sn-btn sn-btn--gold-lg"
+            >
+              Comprar ahora
+            </button>
+          </form>
+
+          <script>
+            function handleCheckout(event, variantId) {
+              event.preventDefault();
+              
+              // Limpiar carrito y agregar 1 unidad
+              fetch(window.Shopify.routes.root + 'cart/clear.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+              })
+              .then(() => {
+                // Agregar 1 unidad del producto
+                return fetch(window.Shopify.routes.root + 'cart/add.js', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    items: [{ id: variantId, quantity: 1 }]
+                  })
+                });
+              })
+              .then(() => {
+                // Redirigir al checkout
+                window.location.href = window.Shopify.routes.root + 'checkout';
+              })
+              .catch(error => console.error('Error:', error));
+            }
+          </script>
+        </div>
+      </div>
+    {% else %}
+      <div class="sn-product__empty">
+        <p>Por favor, selecciona un producto en la configuración de esta sección.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .sn-product {
+    padding: 4rem 0;
+    background-color: var(--sn-bg);
+  }
+  
+  .sn-product__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .sn-product__content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  
+  .sn-product__image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .sn-product__title {
+    font-family: var(--sn-font-serif);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--sn-text);
+  }
+  
+  .sn-product__description {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--sn-text-muted);
+  }
+  
+  .sn-product__price {
+    margin-bottom: 2rem;
+  }
+  
+  .sn-product__price-amount {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sn-gold);
+  }
+  
+  .sn-product__form {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .sn-product__form button {
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Producto - Ebook",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Selecciona el producto (ebook)"
+    }
+  ]
+}
+{% endschema %}

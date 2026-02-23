@@ -1,1 +1,182 @@
-{"sections":{"hero":{"type":"hero","settings":{"label_text":"Fedra Duarte presenta","title":"Ser Supernova","subtitle":"El estallido que te convierte en luz","description":"Una guia intima, visceral y luminosa para transformar tu historia en conciencia, y tu dolor en expansion.","cta_text":"Quiero mi libro digital","cta_link":"#producto","quote":"Escribi este libro para las almas que caminaron entre sombras, que se rompieron y se reconstruyeron, que sienten que adentro suyo algo quiere estallar... pero hacia la luz.","show_arrow":true}},"about-book":{"type":"about-book","settings":{"label_text":"Sobre el libro","title":"Que es Ser Supernova?","description":"<p>Ser Supernova es un viaje. Un renacer. Un relato intimo donde cuento como mi propia explosion interna me devolvio a la vida, a la conciencia y al amor mas grande: el propio.</p>","list_heading":"Este libro es para vos si:","closing_quote":"Cada capitulo es una linterna. Cada palabra, un rito. Cada imagen, una brujula."},"blocks":{"reason-1":{"type":"reason","settings":{"text":"Sentis que tu alma esta pidiendo direccion"}},"reason-2":{"type":"reason","settings":{"text":"Atravesaste vinculos que te apagaron"}},"reason-3":{"type":"reason","settings":{"text":"Buscas sanar tu historia sin negarla"}},"reason-4":{"type":"reason","settings":{"text":"Queres ordenar tu luz y tu sombra"}},"reason-5":{"type":"reason","settings":{"text":"Necesitas redescubrir tu proposito"}},"reason-6":{"type":"reason","settings":{"text":"Sabes que hay una version tuya esperando nacer"}}},"block_order":["reason-1","reason-2","reason-3","reason-4","reason-5","reason-6"]},"benefits":{"type":"benefits","settings":{"label_text":"Tu transformacion","title":"Lo que te vas a llevar","closing_quote":"Este libro no es teoria. Es proceso. Es carne. Es conciencia hecha palabra."},"blocks":{"b-1":{"type":"benefit","settings":{"text":"Recuperar tu voz interior"}},"b-2":{"type":"benefit","settings":{"text":"Reescribir tu historia desde el poder"}},"b-3":{"type":"benefit","settings":{"text":"Integrar tu sombra con amor"}},"b-4":{"type":"benefit","settings":{"text":"Comprender tus heridas como maestras"}},"b-5":{"type":"benefit","settings":{"text":"Activar tu proposito esencial"}},"b-6":{"type":"benefit","settings":{"text":"Manifestar una nueva realidad desde la coherencia"}},"b-7":{"type":"benefit","settings":{"text":"Honrar tu energia femenina y creadora"}},"b-8":{"type":"benefit","settings":{"text":"Entender la alquimia emocional: convertir dolor en sabiduria"}},"b-9":{"type":"benefit","settings":{"text":"Reconectar con tu alma, tu instinto y tu luz"}},"b-10":{"type":"benefit","settings":{"text":"Aprender a sostenerte en amor propio"}},"b-11":{"type":"benefit","settings":{"text":"Renacer como la mujer que siempre fuiste"}}},"block_order":["b-1","b-2","b-3","b-4","b-5","b-6","b-7","b-8","b-9","b-10","b-11"]},"author":{"type":"author","settings":{"label_text":"Sobre la autora","title":"Quien soy cuando me saco todas las capas","biography":"<p>Soy <strong>Fedra Duarte</strong>, mama, mujer, alma buscadora, caminante de mis sombras y guardiana de mi propia luz.</p><p>Vivi renacimientos, perdidas, despertares y revelaciones que me obligaron a mirar adentro sin filtros.</p>","highlight_quote":"Mi hijo fue mi fractura y mi faro. Mi historia, mi medicina. Y este libro... mi servicio.","biography_continued":"<p>Hoy acompa;no procesos de conciencia emocional y espiritual. Creo en la alquimia interna. Creo en el amor como energia universal. Creo en el poder de sanar para sanar a otros.</p>","closing_line":"Si estas aca, nuestras almas se reconocieron."}},"testimonials":{"type":"testimonials","settings":{"label_text":"Testimonios","title":"Lo que estan diciendo las primeras lectoras"},"blocks":{"t-1":{"type":"testimonial","settings":{"quote":"No sabia que necesitaba este libro hasta que lo abri. Es pura revelacion.","author":"Lectora verificada"}},"t-2":{"type":"testimonial","settings":{"quote":"Es sanacion en paginas. Llore, solte, me reconoci.","author":"Lectora verificada"}},"t-3":{"type":"testimonial","settings":{"quote":"Senti que alguien por fin ponia palabras a lo que jamas pude explicar.","author":"Lectora verificada"}},"t-4":{"type":"testimonial","settings":{"quote":"Una obra luminosa. Una guia real hacia el renacer.","author":"Lectora verificada"}}},"block_order":["t-1","t-2","t-3","t-4"]},"bonuses":{"type":"bonuses","settings":{"label_text":"Bonos especiales","title":"Para acompanar tu viaje"},"blocks":{"bonus-1":{"type":"bonus","settings":{"icon":"document","title":"Mini cuaderno de integracion (PDF)","description":"Ejercicios simples para expandir lo que el libro despierta."}},"bonus-2":{"type":"bonus","settings":{"icon":"audio","title":"Audio de meditacion \"Encender tu propia luz\"","description":"Activacion breve para sostener tu energia."}},"bonus-3":{"type":"bonus","settings":{"icon":"community","title":"Acceso anticipado a mis proximos circulos y talleres","description":"Ser de las primeras en participar de mi espacio de acompanamiento."}}},"block_order":["bonus-1","bonus-2","bonus-3"]},"call-to-action":{"type":"call-to-action","settings":{"title":"Lista para tu transformacion?","description":"Si estas frente a este libro, es porque una parte tuya esta lista para expandirse. Para estallar hacia la luz. Para volverse supernova.","cta_text":"Quiero mi libro — Descarga digital","cta_link":"#producto","note":"Incluye: PDF profesional + acceso inmediato + bonos"}},"product":{"type":"product","settings":{"product":""}},"index-preview":{"type":"index-preview","settings":{"label_text":"Adelanto","title":"Que vas a encontrar adentro"},"blocks":{"p-1":{"type":"part","settings":{"number":"I","title":"El Estallido","chapters":"Capitulos 1 a 3"}},"p-2":{"type":"part","settings":{"number":"II","title":"Entre Sombras y Fragmentos","chapters":"Capitulos 4 y 5"}},"p-3":{"type":"part","settings":{"number":"III","title":"El Renacer","chapters":"Capitulos 6 a 9"}},"p-4":{"type":"part","settings":{"number":"IV","title":"Convertir el Estallido en Luz","chapters":"Capitulos 10 a 12 + Epilogo"}}},"block_order":["p-1","p-2","p-3","p-4"]},"faq":{"type":"faq","settings":{"label_text":"FAQ","title":"Preguntas frecuentes"},"blocks":{"f-1":{"type":"faq_item","settings":{"question":"En que formato viene el libro?","answer":"En PDF profesional. Se puede leer en celular, tablet, computadora o Kindle."}},"f-2":{"type":"faq_item","settings":{"question":"Como recibo mi compra?","answer":"Apenas realizas el pago, te llega un email con el link de descarga inmediata."}},"f-3":{"type":"faq_item","settings":{"question":"Puedo leerlo aunque no tenga experiencia en espiritualidad?","answer":"Si. El libro esta escrito desde lo humano, lo visceral y lo simple. No necesitas ningun conocimiento previo."}},"f-4":{"type":"faq_item","settings":{"question":"Que pasa si no me llega el archivo?","answer":"Me escribis y te lo enviamos en el momento. Estamos siempre disponibles para ayudarte."}}},"block_order":["f-1","f-2","f-3","f-4"]},"closing":{"type":"closing","settings":{"heading_line_1":"Tu historia no te define.","heading_line_2":"Tu luz si.","description":"Este libro es una puerta. Cruzala. La vida que queres ya esta vibrando adentro tuyo.","cta_text":"Descargar \"Ser Supernova\"","cta_link":"#producto","closing_line":"Tu viaje de regreso a vos empieza hoy"}}},"order":["hero","about-book","benefits","author","testimonials","bonuses","call-to-action","product","index-preview","faq","closing"]}
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "label_text": "Fedra Duarte presenta",
+        "title": "Ser Supernova",
+        "subtitle": "El estallido que te convierte en luz",
+        "description": "Una guia intima, visceral y luminosa para transformar tu historia en conciencia, y tu dolor en expansion.",
+        "cta_text": "Quiero mi libro digital",
+        "cta_link": "#product",
+        "quote": "Escribi este libro para las almas que caminaron entre sombras, que se rompieron y se reconstruyeron, que sienten que adentro suyo algo quiere estallar... pero hacia la luz.",
+        "show_arrow": true
+      }
+    },
+    "about-book": {
+      "type": "about-book",
+      "settings": {
+        "label_text": "Sobre el libro",
+        "title": "Que es Ser Supernova?",
+        "description": "<p>Ser Supernova es un viaje. Un renacer. Un relato intimo donde cuento como mi propia explosion interna me devolvio a la vida, a la conciencia y al amor mas grande: el propio.</p>",
+        "list_heading": "Este libro es para vos si:",
+        "closing_quote": "Cada capitulo es una linterna. Cada palabra, un rito. Cada imagen, una brujula."
+      },
+      "blocks": {
+        "reason-1": {
+          "type": "reason",
+          "settings": {
+            "text": "Sentis que tu alma esta pidiendo direccion"
+          }
+        },
+        "reason-2": {
+          "type": "reason",
+          "settings": {
+            "text": "Atravesaste vinculos que te apagaron"
+          }
+        },
+        "reason-3": {
+          "type": "reason",
+          "settings": {
+            "text": "Buscas sanar tu historia sin negarla"
+          }
+        },
+        "reason-4": {
+          "type": "reason",
+          "settings": {
+            "text": "Queres ordenar tu luz y tu sombra"
+          }
+        },
+        "reason-5": {
+          "type": "reason",
+          "settings": {
+            "text": "Necesitas redescubrir tu proposito"
+          }
+        },
+        "reason-6": {
+          "type": "reason",
+          "settings": {
+            "text": "Sabes que hay una version tuya esperando nacer"
+          }
+        }
+      },
+      "block_order": ["reason-1", "reason-2", "reason-3", "reason-4", "reason-5", "reason-6"]
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {
+        "label_text": "Tu transformacion",
+        "title": "Lo que te vas a llevar",
+        "closing_quote": "Este libro no es teoria. Es proceso. Es carne. Es conciencia hecha palabra."
+      },
+      "blocks": {
+        "b-1": {"type": "benefit", "settings": {"text": "Recuperar tu voz interior"}},
+        "b-2": {"type": "benefit", "settings": {"text": "Reescribir tu historia desde el poder"}},
+        "b-3": {"type": "benefit", "settings": {"text": "Integrar tu sombra con amor"}},
+        "b-4": {"type": "benefit", "settings": {"text": "Comprender tus heridas como maestras"}},
+        "b-5": {"type": "benefit", "settings": {"text": "Activar tu proposito esencial"}},
+        "b-6": {"type": "benefit", "settings": {"text": "Manifestar una nueva realidad desde la coherencia"}},
+        "b-7": {"type": "benefit", "settings": {"text": "Honrar tu energia femenina y creadora"}},
+        "b-8": {"type": "benefit", "settings": {"text": "Entender la alquimia emocional: convertir dolor en sabiduria"}},
+        "b-9": {"type": "benefit", "settings": {"text": "Reconectar con tu alma, tu instinto y tu luz"}},
+        "b-10": {"type": "benefit", "settings": {"text": "Aprender a sostenerte en amor propio"}},
+        "b-11": {"type": "benefit", "settings": {"text": "Renacer como la mujer que siempre fuiste"}}
+      },
+      "block_order": ["b-1", "b-2", "b-3", "b-4", "b-5", "b-6", "b-7", "b-8", "b-9", "b-10", "b-11"]
+    },
+    "author": {
+      "type": "author",
+      "settings": {
+        "label_text": "Sobre la autora",
+        "title": "Quien soy cuando me saco todas las capas",
+        "biography": "<p>Soy <strong>Fedra Duarte</strong>, mama, mujer, alma buscadora, caminante de mis sombras y guardiana de mi propia luz.</p><p>Vivi renacimientos, perdidas, despertares y revelaciones que me obligaron a mirar adentro sin filtros.</p>",
+        "highlight_quote": "Mi hijo fue mi fractura y mi faro. Mi historia, mi medicina. Y este libro... mi servicio.",
+        "biography_continued": "<p>Hoy acompanio procesos de conciencia emocional y espiritual. Creo en la alquimia interna. Creo en el amor como energia universal. Creo en el poder de sanar para sanar a otros.</p>",
+        "closing_line": "Si estas aca, nuestras almas se reconocieron."
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "label_text": "Testimonios",
+        "title": "Lo que estan diciendo las primeras lectoras"
+      },
+      "blocks": {
+        "t-1": {"type": "testimonial", "settings": {"quote": "No sabia que necesitaba este libro hasta que lo abri. Es pura revelacion.", "author": "Lectora verificada"}},
+        "t-2": {"type": "testimonial", "settings": {"quote": "Es sanacion en paginas. Llore, solte, me reconoci.", "author": "Lectora verificada"}},
+        "t-3": {"type": "testimonial", "settings": {"quote": "Senti que alguien por fin ponia palabras a lo que jamas pude explicar.", "author": "Lectora verificada"}},
+        "t-4": {"type": "testimonial", "settings": {"quote": "Una obra luminosa. Una guia real hacia el renacer.", "author": "Lectora verificada"}}
+      },
+      "block_order": ["t-1", "t-2", "t-3", "t-4"]
+    },
+    "bonuses": {
+      "type": "bonuses",
+      "settings": {
+        "label_text": "Bonos especiales",
+        "title": "Para acompanar tu viaje"
+      },
+      "blocks": {
+        "bonus-1": {"type": "bonus", "settings": {"icon": "document", "title": "Mini cuaderno de integracion (PDF)", "description": "Ejercicios simples para expandir lo que el libro despierta."}},
+        "bonus-2": {"type": "bonus", "settings": {"icon": "audio", "title": "Audio de meditacion \"Encender tu propia luz\"", "description": "Activacion breve para sostener tu energia."}},
+        "bonus-3": {"type": "bonus", "settings": {"icon": "community", "title": "Acceso anticipado a mis proximos circulos y talleres", "description": "Ser de las primeras en participar de mi espacio de acompanamiento."}}
+      },
+      "block_order": ["bonus-1", "bonus-2", "bonus-3"]
+    },
+    "call-to-action": {
+      "type": "call-to-action",
+      "settings": {
+        "title": "Lista para tu transformacion?",
+        "description": "Si estas frente a este libro, es porque una parte tuya esta lista para expandirse. Para estallar hacia la luz. Para volverse supernova.",
+        "cta_text": "Quiero mi libro — Descarga digital",
+        "cta_link": "#product",
+        "note": "Incluye: PDF profesional + acceso inmediato + bonos"
+      }
+    },
+    "product": {
+      "type": "product",
+      "settings": {
+        "product": ""
+      }
+    },
+    "index-preview": {
+      "type": "index-preview",
+      "settings": {
+        "label_text": "Adelanto",
+        "title": "Que vas a encontrar adentro"
+      },
+      "blocks": {
+        "p-1": {"type": "part", "settings": {"number": "I", "title": "El Estallido", "chapters": "Capitulos 1 a 3"}},
+        "p-2": {"type": "part", "settings": {"number": "II", "title": "Entre Sombras y Fragmentos", "chapters": "Capitulos 4 y 5"}},
+        "p-3": {"type": "part", "settings": {"number": "III", "title": "El Renacer", "chapters": "Capitulos 6 a 9"}},
+        "p-4": {"type": "part", "settings": {"number": "IV", "title": "Convertir el Estallido en Luz", "chapters": "Capitulos 10 a 12 + Epilogo"}}
+      },
+      "block_order": ["p-1", "p-2", "p-3", "p-4"]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "label_text": "FAQ",
+        "title": "Preguntas frecuentes"
+      },
+      "blocks": {
+        "f-1": {"type": "faq_item", "settings": {"question": "En que formato viene el libro?", "answer": "En PDF profesional. Se puede leer en celular, tablet, computadora o Kindle."}},
+        "f-2": {"type": "faq_item", "settings": {"question": "Como recibo mi compra?", "answer": "Apenas realizas el pago, te llega un email con el link de descarga inmediata."}},
+        "f-3": {"type": "faq_item", "settings": {"question": "Puedo leerlo aunque no tenga experiencia en espiritualidad?", "answer": "Si. El libro esta escrito desde lo humano, lo visceral y lo simple. No necesitas ningun conocimiento previo."}},
+        "f-4": {"type": "faq_item", "settings": {"question": "Que pasa si no me llega el archivo?", "answer": "Me escribis y te lo enviamos en el momento. Estamos siempre disponibles para ayudarte."}}
+      },
+      "block_order": ["f-1", "f-2", "f-3", "f-4"]
+    },
+    "closing": {
+      "type": "closing",
+      "settings": {
+        "heading_line_1": "Tu historia no te define.",
+        "heading_line_2": "Tu luz si.",
+        "description": "Este libro es una puerta. Cruzala. La vida que queres ya esta vibrando adentro tuyo.",
+        "cta_text": "Descargar \"Ser Supernova\"",
+        "cta_link": "#product",
+        "closing_line": "Tu viaje de regreso a vos empieza hoy"
+      }
+    }
+  },
+  "order": ["hero", "about-book", "benefits", "author", "testimonials", "bonuses", "call-to-action", "product", "index-preview", "faq", "closing"]
+}

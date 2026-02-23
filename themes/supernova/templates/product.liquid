@@ -1,0 +1,171 @@
+<div class="sn-product-page">
+  <div class="sn-container">
+    <a href="/" class="sn-back-link">← Volver</a>
+
+    <div class="sn-product-page__wrapper">
+      <div class="sn-product-page__image">
+        {% if product.featured_image %}
+          <img 
+            src="{{ product.featured_image | image_url: width: 800 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            loading="eager"
+          >
+        {% endif %}
+      </div>
+
+      <div class="sn-product-page__details">
+        <h1 class="sn-product-page__title">{{ product.title }}</h1>
+
+        <div class="sn-product-page__price">
+          {% if product.price %}
+            <span class="sn-product-page__price-amount">
+              {{ product.price | money }}
+            </span>
+          {% endif %}
+        </div>
+
+        {% if product.description %}
+          <div class="sn-product-page__description">
+            {{ product.description }}
+          </div>
+        {% endif %}
+
+        <form 
+          class="sn-product-page__form"
+          onsubmit="handleCheckout(event, {{ product.selected_or_first_available_variant.id }})"
+        >
+          <button 
+            type="submit" 
+            class="sn-btn sn-btn--gold-lg"
+            style="width: 100%;"
+          >
+            Comprar ahora
+          </button>
+        </form>
+
+        <script>
+          function handleCheckout(event, variantId) {
+            event.preventDefault();
+            
+            // Limpiar carrito y agregar 1 unidad
+            fetch(window.Shopify.routes.root + 'cart/clear.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' }
+            })
+            .then(() => {
+              // Agregar 1 unidad del producto
+              return fetch(window.Shopify.routes.root + 'cart/add.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  items: [{ id: variantId, quantity: 1 }]
+                })
+              });
+            })
+            .then(() => {
+              // Redirigir al checkout
+              window.location.href = window.Shopify.routes.root + 'checkout';
+            })
+            .catch(error => console.error('Error:', error));
+          }
+        </script>
+
+        {% if product.metafields.custom.additional_info %}
+          <div class="sn-product-page__additional">
+            {{ product.metafields.custom.additional_info }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sn-product-page {
+    padding: 2rem 0 4rem;
+  }
+
+  .sn-back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--sn-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sn-back-link:hover {
+    text-decoration: underline;
+  }
+
+  .sn-product-page__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .sn-product-page__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sn-product-page__image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .sn-product-page__title {
+    font-family: var(--sn-font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--sn-text);
+  }
+
+  .sn-product-page__price {
+    margin-bottom: 2rem;
+  }
+
+  .sn-product-page__price-amount {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--sn-gold);
+  }
+
+  .sn-product-page__description {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--sn-text-muted);
+  }
+
+  .sn-product-page__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sn-product-page__quantity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sn-product-page__quantity label {
+    font-weight: 500;
+  }
+
+  .sn-product-page__quantity input[type="number"] {
+    width: 80px;
+    padding: 0.75rem;
+    border: 1px solid var(--sn-border);
+    border-radius: 2px;
+    font-size: 1rem;
+  }
+
+  .sn-product-page__additional {
+    padding-top: 2rem;
+    border-top: 1px solid var(--sn-border);
+    color: var(--sn-text-muted);
+  }
+</style>

@@ -1,0 +1,235 @@
+<div class="sn-cart">
+  <div class="sn-container">
+    <h1 class="sn-page-title">Tu carrito</h1>
+
+    {% if cart.item_count > 0 %}
+      <div class="sn-cart__wrapper">
+        <div class="sn-cart__items">
+          <table class="sn-cart__table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in cart.items %}
+                <tr class="sn-cart__item">
+                  <td>
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                  </td>
+                  <td>{{ item.price | money }}</td>
+                  <td>
+                    <form action="{{ routes.cart_change_url }}" method="post" class="sn-cart__quantity">
+                      <input type="hidden" name="id" value="{{ item.key }}">
+                      <input type="number" name="quantity" value="{{ item.quantity }}" min="0">
+                      <button type="submit" class="sn-btn sn-btn--sm">Actualizar</button>
+                    </form>
+                  </td>
+                  <td>{{ item.final_line_price | money }}</td>
+                  <td>
+                    <form action="{{ routes.cart_change_url }}" method="post" class="sn-cart__remove">
+                      <input type="hidden" name="id" value="{{ item.key }}">
+                      <input type="hidden" name="quantity" value="0">
+                      <button type="submit" class="sn-btn sn-btn--text">Eliminar</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="sn-cart__sidebar">
+          <div class="sn-cart__summary">
+            <div class="sn-cart__summary-row">
+              <span>Subtotal:</span>
+              <span>{{ cart.subtotal_price | money }}</span>
+            </div>
+
+            {% if cart.shipping_price > 0 %}
+              <div class="sn-cart__summary-row">
+                <span>Envío:</span>
+                <span>{{ cart.shipping_price | money }}</span>
+              </div>
+            {% endif %}
+
+            {% if cart.tax_price > 0 %}
+              <div class="sn-cart__summary-row">
+                <span>Impuestos:</span>
+                <span>{{ cart.tax_price | money }}</span>
+              </div>
+            {% endif %}
+
+            <div class="sn-cart__summary-total">
+              <span>Total:</span>
+              <span>{{ cart.total_price | money }}</span>
+            </div>
+          </div>
+
+          <form action="{{ routes.cart_url }}" method="post" class="sn-cart__actions">
+            <button type="submit" name="checkout" class="sn-btn sn-btn--gold-lg" style="width: 100%;">
+              Proceder al pago
+            </button>
+            <a href="/" class="sn-btn sn-btn--outline" style="width: 100%; text-align: center;">
+              Continuar comprando
+            </a>
+          </form>
+
+          <p class="sn-cart__note">Se añadirán impuestos y costos de envío en el siguiente paso.</p>
+        </aside>
+      </div>
+    {% else %}
+      <div class="sn-cart__empty">
+        <h2>Tu carrito está vacío</h2>
+        <p>Aún no has agregado ningún producto.</p>
+        <a href="/" class="sn-btn sn-btn--gold">
+          Volver a la tienda
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .sn-cart {
+    padding: 4rem 0;
+    min-height: 60vh;
+  }
+
+  .sn-page-title {
+    font-family: var(--sn-font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--sn-text);
+  }
+
+  .sn-cart__wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .sn-cart__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sn-cart__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .sn-cart__table th,
+  .sn-cart__table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--sn-border);
+  }
+
+  .sn-cart__table th {
+    font-weight: 600;
+    background-color: var(--sn-bg-alt);
+  }
+
+  .sn-cart__quantity {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .sn-cart__quantity input[type="number"] {
+    width: 60px;
+    padding: 0.5rem;
+    border: 1px solid var(--sn-border);
+    border-radius: 2px;
+  }
+
+  .sn-cart__summary {
+    background-color: var(--sn-bg-alt);
+    padding: 2rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+  }
+
+  .sn-cart__summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .sn-cart__summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--sn-border);
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .sn-cart__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sn-cart__note {
+    font-size: 0.85rem;
+    color: var(--sn-text-muted);
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .sn-cart__empty {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .sn-cart__empty h2 {
+    font-family: var(--sn-font-serif);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sn-cart__empty p {
+    margin-bottom: 2rem;
+    color: var(--sn-text-muted);
+  }
+
+  .sn-btn--outline {
+    background-color: transparent;
+    border: 2px solid var(--sn-text);
+    color: var(--sn-text);
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+  }
+
+  .sn-btn--outline:hover {
+    background-color: var(--sn-text);
+    color: var(--sn-bg);
+  }
+
+  .sn-btn--text {
+    background: none;
+    border: none;
+    color: var(--sn-rose);
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  .sn-btn--text:hover {
+    opacity: 0.7;
+  }
+
+  .sn-btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+</style>
