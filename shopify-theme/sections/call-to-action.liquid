@@ -14,16 +14,15 @@
     </p>
 
     {% if section.settings.product != blank %}
-      {% assign variant = section.settings.product.selected_or_first_available_variant %}
+      {% assign product = section.settings.product %}
       <div class="sn-cta__actions" style="display:flex;gap:0.75rem;justify-content:center;align-items:center;">
-        <button type="button" class="sn-btn sn-btn--gold-lg sn-add-to-cart" data-variant-id="{{ variant.id }}" data-no-redirect="true">
-          Comprar ahora
-        </button>
-        <a href="#producto" class="sn-btn sn-btn--outline">
+        <a href="{{ product.url }}" class="sn-btn sn-btn--gold-lg">
+          {{ section.settings.cta_text }}
+        </a>
+        <a href="{{ product.url }}" class="sn-btn sn-btn--outline">
           Ver producto
         </a>
       </div>
-      {{ 'add-to-cart.js' | asset_url | script_tag }}
     {% else %}
       <a href="{{ section.settings.cta_link }}" class="sn-btn sn-btn--gold-lg">
         {{ section.settings.cta_text }}
