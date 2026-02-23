@@ -1,0 +1,63 @@
+{% comment %}
+Cart section — renders the storefront cart with update/remove controls and checkout CTA.
+Respects site styles using `sn-` prefixed classes.
+{% endcomment %}
+
+<div class="sn-cart">
+  <header class="sn-cart__header">
+    <h1 class="sn-cart__title">Carrito ({{ cart.item_count }})</h1>
+  </header>
+
+  {% if cart.item_count == 0 %}
+    <div class="sn-cart__empty">
+      <p>Tu carrito está vacío.</p>
+      <a href="/" class="sn-button">Seguir comprando</a>
+    </div>
+  {% else %}
+    <div class="sn-cart__list">
+      {% for item in cart.items %}
+        <div class="sn-cart__item" data-line="{{ forloop.index }}">
+          <div class="sn-cart__media">
+            {% if item.image %}
+              <img src="{{ item.image | img_url: 'compact' }}" alt="{{ item.title }}" />
+            {% endif %}
+          </div>
+          <div class="sn-cart__body">
+            <h3 class="sn-cart__product-title">{{ item.product.title }}</h3>
+            <div class="sn-cart__variant">{{ item.variant_title }}</div>
+            <div class="sn-cart__price">{{ item.final_line_price | money }}</div>
+
+            <form class="sn-qty-form" data-line="{{ forloop.index }}">
+              <label class="sn-qty-label">Cantidad
+                <input type="number" name="quantity" min="0" value="{{ item.quantity }}" class="sn-qty-input">
+              </label>
+              <input type="hidden" name="id" value="{{ item.key }}">
+              <button type="submit" class="sn-button sn-button--secondary">Actualizar</button>
+              <button type="button" class="sn-button sn-button--danger sn-remove" data-key="{{ item.key }}">Eliminar</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <footer class="sn-cart__footer">
+      <div class="sn-cart__totals">
+        <div class="sn-cart__subtotal">Subtotal: <strong>{{ cart.total_price | money }}</strong></div>
+      </div>
+      <div class="sn-cart__actions">
+        <a href="/collections/all" class="sn-button">Seguir comprando</a>
+        <a href="/checkout" class="sn-button sn-button--primary">Pagar</a>
+      </div>
+    </footer>
+  {% endif %}
+</div>
+
+{{ 'cart.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Carrito",
+  "settings": [],
+  "presets": [{ "name": "Carrito" }]
+}
+{% endschema %}

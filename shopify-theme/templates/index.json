@@ -100,6 +100,12 @@
         "note": "Incluye: PDF profesional + acceso inmediato + bonos"
       }
     },
+    "product": {
+      "type": "product",
+      "settings": {
+        "product": ""
+      }
+    },
     "index-preview": {
       "type": "index-preview",
       "settings": {
@@ -147,6 +153,7 @@
     "testimonials",
     "bonuses",
     "call-to-action",
+    "product",
     "index-preview",
     "faq",
     "closing"

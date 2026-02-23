@@ -20,7 +20,7 @@ export function CallToAction() {
           expandirse. Para estallar hacia la luz. Para volverse supernova.
         </p>
         <a
-          href="#"
+          href="#producto"
           className="inline-flex items-center gap-3 bg-[oklch(0.72_0.10_80)] px-10 py-5 text-[oklch(0.18_0.02_320)] font-sans font-bold text-sm tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity shadow-lg shadow-[oklch(0.72_0.10_80/0.30)]"
         >
           Quiero mi libro — Descarga digital
