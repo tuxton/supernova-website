@@ -7,5 +7,42 @@ global `product` object (so the section can prefer the page product automaticall
 {% layout 'theme' %}
 
 <main role="main">
-  {% section 'product' %}
+  <section id="producto" class="relative min-h-screen flex items-center justify-center overflow-hidden sn-product sn-section">
+    {% if product %}
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}" class="absolute inset-0 w-full h-full object-cover" />
+      {% endif %}
+
+      <div class="absolute inset-0 bg-[oklch(0.30_0.04_320/0.55)]"></div>
+
+      <div class="relative z-10 flex flex-col items-center px-6 py-24 text-center max-w-4xl mx-auto">
+        <h2 class="font-serif text-4xl md:text-6xl font-bold leading-tight mb-4">{{ product.title }}</h2>
+        <div class="text-muted mb-4">{{ product.vendor }}</div>
+
+        {% assign first_variant = product.selected_or_first_available_variant %}
+        <div class="text-2xl font-semibold mb-6">{{ first_variant.price | money }}</div>
+
+        <form class="sn-product-form flex items-center gap-4" method="post" data-redirect="false">
+          <input type="hidden" name="id" value="{{ first_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+
+          <div class="flex gap-3">
+            <button type="submit" class="sn-btn sn-btn--gold-lg sn-add-to-cart">Comprar ahora</button>
+          </div>
+          <div class="mt-4" id="sn-product-confirm" aria-live="polite" style="display:none;color:var(--sn-accent,white);">
+            <strong>¡Listo! El eBook fue agregado al carrito.</strong>
+          </div>
+        </form>
+
+        <p class="mt-8 max-w-2xl">{{ product.description | strip_html | truncate: 300 }}</p>
+      </div>
+
+      {{ 'add-to-cart.js' | asset_url | script_tag }}
+
+    {% else %}
+      <div class="sn-product__empty py-12 text-center">
+        <p>No se ha encontrado este producto.</p>
+      </div>
+    {% endif %}
+  </section>
 </main>
