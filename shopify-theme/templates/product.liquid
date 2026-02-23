@@ -1,0 +1,11 @@
+{% comment %}
+Product template (liquid) — simple template that renders the `product` section.
+This file ensures the product page renders the `product` section with access to the
+global `product` object (so the section can prefer the page product automatically).
+{% endcomment %}
+
+{% layout 'theme' %}
+
+<main role="main">
+  {% section 'product' %}
+</main>
